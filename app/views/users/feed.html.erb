@@ -1,0 +1,11 @@
+<% current_user.friend_circles_apart_of.each do |circle|
+	circle.posts.each do |post|%>
+		<%= post.user.email %>
+		<%= post.title %>
+		<%= post.body %>
+
+		<% post.links.each do |link| %>
+			<%= link.url %>
+		<% end %>
+	<% end %>
+<% end %>

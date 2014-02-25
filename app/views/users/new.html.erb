@@ -1,0 +1,37 @@
+<h1>Sign Up</h1>
+
+<form action="<%= users_url %>" method="post">
+	<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+
+	<label>Email
+		<input type="text" name="user[email]">
+	</label>
+
+	<label>Password
+		<input type="password" name="user[password]">
+	</label>
+
+	<label>
+		First Post!
+		<label>Title
+			<input type="text" name="post[0][title]">
+		</label>
+		<label>Body
+			<input type="text" name="post[0][body]">
+		</label>
+
+
+	</label>
+
+	<% 3.times do |n| %>
+		<label>
+			Link <%= n %>
+			<input type="text" name="links[<%= n %>][url]">
+		</label>
+	<% end %>
+
+
+
+
+	<p><input type="submit" value="Sign Up"></p>
+</form>

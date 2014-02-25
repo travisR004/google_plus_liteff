@@ -1,0 +1,17 @@
+<h1>Welcome, <%= current_user.email %>!</h1>
+
+<%= link_to "New Post", new_post_url %>
+
+<%= link_to "My Feed", user_feed_url(current_user) %>
+
+<ul>
+<% current_user.posts.each do |post| %>
+	<li><%= link_to post.title, post_url(post) %></li>
+<% end %>
+</ul>
+<h2>Friend Circles</h2>
+<ul>
+<% current_user.friend_circles.each do |circle| %>
+	<li><%= link_to circle.title, edit_friend_circle_url(circle) %></li>
+<% end %>
+</ul>

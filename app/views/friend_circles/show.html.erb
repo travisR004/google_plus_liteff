@@ -1,0 +1,6 @@
+<%= @friend_circle.title %>
+<ul>
+	<% @friend_circle.users.each do |user| %>
+	<li><%= user.email %></li>
+	<% end %>
+</ul>

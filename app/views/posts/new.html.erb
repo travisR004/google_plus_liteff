@@ -1,0 +1,29 @@
+<form action="<%= posts_url %>" method="post" >
+		<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+
+		<label>Title
+			<input type="text" name="post[title]">
+		</label>
+
+		<label>Body
+			<input type="text" name="post[body]">
+		</label>
+
+		<% 3.times do |n| %>
+			<label>
+				Link <%= n %>
+				<input type="text" name="links[<%= n %>][url]">
+			</label>
+		<% end %>
+
+		<% current_user.friend_circles.each do |circle| %>
+			<label>
+				<input type="checkbox"
+					name="post[friend_circle_ids][]"
+						value="<%= circle.id %>">
+						<%= circle.title %>
+			</label>
+		<% end %>
+
+	<p><input type="submit" value="Continue &rarr;"></p>
+</form>

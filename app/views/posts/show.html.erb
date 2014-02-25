@@ -1,0 +1,15 @@
+<h1><%= @post.title %></h1>
+<p><%= @post.body%></p>
+<p>Upvotes:
+<%= @post.upvotes.count %>
+</p>
+<%= button_to "Upvote?", post_upvote_url(@post), method: :post %>
+
+<% @post.links.each do |link| %>
+<%= link.url %>
+<% end %>
+
+<% @post.friend_circles.each do |friend_circle| %>
+<%= friend_circle.title %>
+<% end %>
+<%= link_to "Back to Profile", user_url(current_user) %>
